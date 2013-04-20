@@ -23,7 +23,17 @@ import cStringIO
 import re
 import random
 
-NUM_CATS = 6
+OCTOCAT_LIST = [
+"deckfailcat-octocat.png",
+"droctocat-octocat.png",
+"megacat-2-octocat.png",
+"defunktocat-octocat.png",
+"droidtocat-octocat.png",
+"poptocat_v2-octocat.png",
+"dodgetocat_v2-octocat.png",
+"goretocat-octocat.png",
+"red-polo-octocat.png",
+]
 
 
 def handle_image(item):
@@ -48,8 +58,8 @@ def handle_image(item):
     tempimg = cStringIO.StringIO(img_data.decode('base64'))
     im = Image.open(tempimg)
 
-    cat = random.randint(1, NUM_CATS)
-    cat_image = Image.open("res/cat%s.png" % cat)
+    cat = random.randint(1, len(OCTOCAT_LIST))
+    cat_image = Image.open("res/%s" % OCTOCAT_LIST[cat])
 
     zoom = im.size[0] / 640
 
