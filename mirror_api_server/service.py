@@ -85,7 +85,7 @@ class NewCardHandler(utils.BaseHandler):
 
         body = {}
         
-        current = str(getGithubNotifications("kdietze3", "mcintosh94"))
+        current = str(getGithubNotifications("user", "pass"))
         if current != prev:
             prev = current
             body["text"] = current
