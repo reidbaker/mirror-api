@@ -82,6 +82,7 @@ class NotifyHandler(utils.BaseHandler):
         if add_a_cat:
             new_item = cat_image(result)
             if new_item is not None:
+                new_item["text"] = "octocat"
                 result = service.timeline().insert(body=new_item).execute()
                 logging.info(result)
 

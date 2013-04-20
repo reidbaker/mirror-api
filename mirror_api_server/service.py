@@ -85,10 +85,13 @@ class NewCardHandler(utils.BaseHandler):
 
         body = {}
         
-        current = str(getGithubNotifications("user", "pass"))
-        if current != prev:
+        current = str(getGithubNotifications("kdietze3", "mcintosh94"))
+        if current != prev or data["text"] == "octocat":
             prev = current
-            body["text"] = current
+            if data["text"] == "octocat":
+                body["text"] = data["text"]
+            else:
+                body["text"] = current
             image = "http://fc08.deviantart.net/fs70/f/2011/180/7/f/guthub_octocat_by_side_7-d3kft7p.png"
             # if "image" in data:
             body["attachments"] = [{"contentType": "image/*", "contentUrl": image}]
