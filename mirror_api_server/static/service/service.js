@@ -145,23 +145,23 @@
 
     this.sendCard = function () {
       var input, xhr, text, message;
-      input = doc.getElementById("new_card");
-      text = input.value;
+      //input = doc.getElementById("new_card");
+      //text = input.value;
 
       message = {};
 
-      if (text) {
-        input.value = "";
+      //if (text) {
+        //input.value = "";
 
-        message.text = text;
+        //message.text = "";
 
-        input = doc.getElementById("new_image");
-        text = input.value;
-        input.value = "";
+        //input = doc.getElementById("new_image");
+        //text = input.value;
+        //input.value = "";
 
-        if (text) {
-          message.image = text;
-        }
+        //if (text) {
+        //message.image = "";
+        //}
 
         xhr = new global.XMLHttpRequest();
         xhr.onreadystatechange = function () {
@@ -182,8 +182,8 @@
         xhr.open("POST", "/new", true);
         xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
         xhr.send(JSON.stringify(message));
-      }
-
+      
+		//}
     };
   }
 
