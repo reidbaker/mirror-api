@@ -17,7 +17,8 @@
 
   function Service() {
     var state;
-
+	
+	
     function listCards(items) {
       var i, l, ul, li;
       if (items) {
@@ -58,7 +59,6 @@
 
     function connect(id, code) {
       var xhr;
-
       xhr = new global.XMLHttpRequest();
       xhr.onreadystatechange = function () {
         var response;
@@ -142,12 +142,19 @@
         doc.getElementById("glass").style.display = "none";
       }
     };
-
+    
+    this.startRollingUpdates = function(){
+    	console.log("Rolling Updates Started");
+    	
+    	var timerId = setInterval(global.mirrorService.sendCard,30000);
+    	};
+    	
     this.sendCard = function () {
       var input, xhr, text, message;
+      
       //input = doc.getElementById("new_card");
       //text = input.value;
-
+      console.log("Attempting to add new card");
       message = {};
 
       //if (text) {
@@ -191,7 +198,8 @@
   global.onSignInCallback = global.mirrorService.signInCallback;
 
   global.onload = function () {
+  	
     doc.getElementById("signout_button").onclick = global.mirrorService.disconnect;
-    doc.getElementById("send_card").onclick = global.mirrorService.sendCard;
+    doc.getElementById("send_card").onclick = global.mirrorService.startRollingUpdates;
   };
 }(this));
