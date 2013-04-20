@@ -1,4 +1,4 @@
-application: mirror-api
+application: github-notifications-glass
 version: 1
 runtime: python27
 threadsafe: true
